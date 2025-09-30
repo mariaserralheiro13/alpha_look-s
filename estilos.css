@@ -1,0 +1,186 @@
+/* --- VARIÁVEIS DE CORES --- */
+:root {
+    /* Cores Comuns */
+    --cor-rose-gold: #D4A191; 
+    --cor-rose-gold-hover: #C39082;
+    --cor-fundo-botao: var(--cor-rose-gold);
+    --cor-branco: #FFFFFF;
+    --cor-preto: #000000;
+
+    /* Cores Tema Escuro (Padrão) */
+    --cor-fundo-principal: #0D0D0D;
+    --cor-fundo-card: #0D0D0D; 
+    --cor-texto-principal: #F5F5F5;
+    --cor-texto-secundario: #E5E5E5;
+    --cor-borda-input: #444444; 
+    --cor-sombra: rgba(212, 161, 145, 0.6); 
+}
+
+/* --- TEMA CLARO --- */
+html[data-theme="light"] {
+    --cor-fundo-principal: #F9F0E8; /* Fundo claro para o corpo */
+    --cor-fundo-card: #FFFFFF;      /* Fundo branco para o container */
+    --cor-texto-principal: #333333; /* Texto escuro */
+    --cor-texto-secundario: #666666; 
+    --cor-borda-input: #CCCCCC;     
+    --cor-sombra: rgba(212, 161, 145, 0.4); 
+    --cor-fundo-botao: #000000;     /* Botão escuro para alto contraste */
+    --cor-rose-gold: #966155;       /* Rose Gold mais escuro para destaque */
+}
+
+
+/* --- ESTILO GERAL --- */
+body {
+    font-family: 'Montserrat', sans-serif; 
+    background-color: var(--cor-fundo-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.5s; 
+    color: var(--cor-texto-principal);
+}
+
+/* Contêiner principal do formulário */
+.cadastro-container {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-rose-gold);
+    padding: 30px; 
+    border-radius: 12px;
+    box-shadow: 0 5px 25px var(--cor-sombra);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    transition: background-color 0.5s, box-shadow 0.5s, border-color 0.5s;
+}
+
+/* --- LOGO --- */
+.logo-area {
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    display: block;
+    margin: 0 auto;
+    /* NOVOS VALORES: Aumentando a largura máxima para 400px e a altura para 100px */
+    max-width: 400px; 
+    max-height: 100px; 
+    width: auto; 
+    height: auto; 
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 540px) { 
+    .cadastro-container {
+        padding: 20px;
+    }
+    .logo-img {
+        max-width: 250px;
+        max-height: 70px;
+    }
+}
+
+/* Títulos */
+.titulo-cadastro {
+    font-family: 'Playfair Display', serif; 
+    color: var(--cor-rose-gold);
+    font-size: 2em; 
+    margin-bottom: 5px;
+}
+
+.sub-titulo {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+/* Grupos de input */
+.input-grupo {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-grupo label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+}
+
+/* Campos de input */
+.input-grupo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda-input);
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: var(--cor-fundo-card);
+    color: var(--cor-texto-principal);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Foco e interatividade (Rose Gold) */
+.input-grupo input:focus {
+    border-color: var(--cor-rose-gold);
+    outline: none;
+    box-shadow: 0 0 8px rgba(212, 161, 145, 0.7);
+}
+
+/* Botão de Cadastro */
+.botao-cadastro {
+    background-color: var(--cor-fundo-botao);
+    color: var(--cor-branco); 
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.botao-cadastro:hover {
+    background-color: var(--cor-rose-gold-hover);
+    opacity: 0.95;
+}
+
+/* Link de login */
+.link-login {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: var(--cor-texto-secundario);
+}
+
+.link-login a {
+    color: var(--cor-rose-gold);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-login a:hover {
+    text-decoration: underline;
+}
+
+/* --- BOTÃO DE TROCA DE TEMA --- */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--cor-rose-gold);
+    color: var(--cor-preto);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}

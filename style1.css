@@ -1,0 +1,259 @@
+/* style.css - Tema ALPHA LOOK'S (Inspirado em YouCom) */
+
+:root {
+    --color-primary: #D4A191; /* Rose Gold (Acento) */
+    --color-secondary: #0D0D0D; /* Preto (Header/Footer/Fundo Escuro) */
+    --color-background-light: #FFFFFF; /* Branco (Fundo de Elementos) */
+    --color-contrast: #E5E5E5; /* Cinza Claro (Fundo Geral) */
+    --color-text-dark: #FFFFFF; /* Texto Geral Padrão (Fundo Escuro) */
+    --color-text-light: #0D0D0D; /* Texto em Fundo Claro */
+}
+
+/* TEMA CLARO */
+.light-mode {
+    --color-secondary: #0D0D0D; /* Header e Footer em Preto (Alto Contraste) */
+    --color-contrast: #FFFFFF; /* Fundo geral em Branco */
+    --color-background-light: #F5F5F5; /* Elementos em Branco Suave */
+    --color-text-dark: #0D0D0D; /* Texto principal em Preto */
+    --color-text-light: #0D0D0D;
+    --color-primary: #BB8173; /* Rose Gold ligeiramente ajustado */
+}
+
+body {
+    font-family: Arial, sans-serif; /* Fonte moderna e limpa */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-contrast); 
+    color: var(--color-text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+/* --- Header Padrão (Usado em Login e Cadastro) --- */
+header {
+    background-color: var(--color-background-light);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.5s;
+}
+.logo img {
+    height: 60px; 
+}
+
+
+/* --- Header Home (Compacto, Estilo YouCom) --- */
+header.home-header {
+    background-color: var(--color-secondary); 
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo menor e mais integrada no novo layout */
+header.home-header .logo img {
+    height: 60px; 
+    filter: drop-shadow(0 0 5px var(--color-primary)); 
+    transition: filter 0.5s;
+}
+
+/* Menu principal centralizado */
+header.home-header nav {
+    flex-grow: 1; 
+    display: flex; 
+    justify-content: center;
+    gap: 30px; 
+}
+
+header.home-header nav a {
+    color: var(--color-contrast); 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+/* Efeito de destaque Rose Gold */
+header.home-header nav a:hover {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* Botão de Tema */
+.theme-toggle-container {
+    width: 100px; 
+    text-align: right;
+}
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: var(--color-contrast);
+    transition: color 0.5s;
+}
+
+/* --- Hero Banner (Imagem grande) --- */
+.hero-banner {
+    /* A imagem de fundo deve ser fornecida pelo usuário */
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-background-light); 
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+.hero-banner h1 {
+    font-size: 4em;
+    margin: 0;
+    color: var(--color-background-light);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+
+.hero-banner p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-banner a {
+    background-color: var(--color-primary);
+    color: var(--color-background-light);
+    padding: 12px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.hero-banner a:hover {
+    background-color: #bb8173;
+}
+
+
+/* --- Layout de Produtos/Coleções (Clean) --- */
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px 0;
+    font-size: 2.5em;
+    color: var(--color-text-dark);
+    font-weight: 700; 
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: flex; 
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    padding: 0 20px;
+}
+
+.product-item {
+    width: 300px;
+    text-align: left; /* Alinhamento mais moderno */
+    background-color: transparent; 
+    box-shadow: none; /* Remove a sombra da caixa para um look mais clean */
+    margin-bottom: 20px;
+}
+
+.product-item img {
+    width: 100%;
+    height: 380px; 
+    display: block;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 10px 0 0 0; 
+}
+
+.product-info strong {
+    color: var(--color-text-dark);
+    font-weight: 400; 
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+.product-info p {
+    color: var(--color-primary); /* Preço em Rose Gold */
+    font-weight: bold;
+    margin: 0;
+}
+
+/* --- Seção de Avaliações --- */
+.review-item {
+    width: 300px;
+    text-align: center;
+    background-color: var(--color-background-light);
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.review-item p {
+    font-style: italic;
+    margin: 10px 0;
+    color: var(--color-text-light); 
+}
+.review-item strong {
+    color: var(--color-primary);
+}
+
+
+/* --- Newsletter e Footer (Estilo Banner) --- */
+.newsletter-section {
+    background-color: var(--color-background-light);
+    padding: 60px 10%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.newsletter-section h2 {
+    color: var(--color-text-light);
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.newsletter-form-box {
+    margin-top: 30px;
+}
+.newsletter-form-box form input[type="email"] {
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    margin-right: 10px;
+}
+
+.newsletter-form-box button {
+    background-color: var(--color-secondary); 
+    color: var(--color-contrast);
+    padding: 15px 30px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.newsletter-form-box button:hover {
+    background-color: var(--color-primary);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-secondary); 
+    color: var(--color-contrast); 
+    font-size: 0.9em;
+    transition: background-color 0.5s, color 0.5s;
+}

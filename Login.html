@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Alpha Look's</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle">☀️</button> <div class="cadastro-container"> 
+        
+        <div class="logo-area">
+            <img src="image (2).png" alt="Alpha Look's Logo" class="logo-img">
+        </div>
+        
+        <h1 class="titulo-cadastro">Acesse Sua Conta</h1>
+        <p class="sub-titulo">Seja bem-vindo(a) de volta!</p>
+        
+        <form class="formulario">
+            <div class="input-grupo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="input-grupo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+
+            <button type="submit" class="botao-cadastro">ENTRAR</button>
+            
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                 <a href="#">Esqueceu a senha?</a>
+            </p>
+        </form>
+        
+        <p class="link-login">
+            Não tem conta? <a href="cadastro.html">CADASTRE-SE</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                this.textContent = '🌙'; 
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                this.textContent = '☀️'; 
+            }
+        });
+    </script>
+</body>
+</html>
