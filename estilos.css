@@ -1,3 +1,5 @@
+/* style.css - Tema ALPHA LOOK'S Login/Cadastro */
+
 /* --- VARIÁVEIS DE CORES --- */
 :root {
     /* Cores Comuns */
@@ -14,19 +16,23 @@
     --cor-texto-secundario: #E5E5E5;
     --cor-borda-input: #444444; 
     --cor-sombra: rgba(212, 161, 145, 0.6); 
+    --cor-fundo-utilitario: #333333; /* Fundo para utilitários no modo escuro */
 }
 
-/* --- TEMA CLARO --- */
+/* --- TEMA CLARO (AJUSTADO PARA MELHOR CONTRASTE) --- */
 html[data-theme="light"] {
     --cor-fundo-principal: #F9F0E8; /* Fundo claro para o corpo */
-    --cor-fundo-card: #FFFFFF;      /* Fundo branco para o container */
-    --cor-texto-principal: #333333; /* Texto escuro */
-    --cor-texto-secundario: #666666; 
-    --cor-borda-input: #CCCCCC;     
+    --cor-fundo-card: #FFFFFF; /* Fundo branco para o container */
+    --cor-texto-principal: #000000; /* AGORA É PRETO (MELHOR CONTRASTE) */
+    --cor-texto-secundario: #000000; 
+    --cor-borda-input: #CCCCCC;
     --cor-sombra: rgba(212, 161, 145, 0.4); 
-    --cor-fundo-botao: #000000;     /* Botão escuro para alto contraste */
-    --cor-rose-gold: #966155;       /* Rose Gold mais escuro para destaque */
+    --cor-fundo-botao: #000000; /* Botão escuro para alto contraste */
+    --cor-rose-gold: #966155; /* Rose Gold mais escuro para destaque */
+    --cor-fundo-utilitario: #E0E0E0; /* Cinza mais claro para o botão utilitário */
 }
+
+/*... mantenha o restante do seu CSS inalterado ...*/
 
 
 /* --- ESTILO GERAL --- */
@@ -34,6 +40,7 @@ body {
     font-family: 'Montserrat', sans-serif; 
     background-color: var(--cor-fundo-principal);
     display: flex;
+    flex-direction: column; /* Necessário para alinhar o header-utilitarios acima do container */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -53,6 +60,43 @@ body {
     max-width: 500px;
     text-align: center;
     transition: background-color 0.5s, box-shadow 0.5s, border-color 0.5s;
+    /* Adicionando margem superior para afastar do header-utilitarios */
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+
+/* --- ESTILOS PARA O HEADER UTILITÁRIO (Voltar Home + Troca de Tema) --- */
+
+.header-utilitarios {
+    /* Centraliza e limita a largura para alinhar com o .cadastro-container */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* Igual ao max-width do .cadastro-container */
+    margin: 20px auto 0;
+    padding: 0 30px; /* Para telas pequenas, garante o espaçamento */
+    box-sizing: border-box; /* Garante que o padding não exceda o max-width */
+}
+
+.voltar-home {
+    /* Estilo para o link "Voltar para a Home" */
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    
+    /* Cores: usa Rose Gold para o texto e fundo utilitário */
+    color: var(--cor-rose-gold); 
+    background-color: var(--cor-fundo-utilitario); 
+    border: 1px solid var(--cor-rose-gold);
+}
+
+.voltar-home:hover {
+    background-color: var(--cor-rose-gold-hover);
+    color: var(--cor-preto);
 }
 
 /* --- LOGO --- */
@@ -63,7 +107,6 @@ body {
 .logo-img {
     display: block;
     margin: 0 auto;
-    /* NOVOS VALORES: Aumentando a largura máxima para 400px e a altura para 100px */
     max-width: 400px; 
     max-height: 100px; 
     width: auto; 
@@ -78,6 +121,9 @@ body {
     .logo-img {
         max-width: 250px;
         max-height: 70px;
+    }
+    .header-utilitarios {
+         padding: 0 20px; /* Ajusta o padding do utilitário */
     }
 }
 
@@ -164,11 +210,10 @@ body {
     text-decoration: underline;
 }
 
-/* --- BOTÃO DE TROCA DE TEMA --- */
+/* --- BOTÃO DE TROCA DE TEMA (Mantido para compatibilidade, mas agora dentro de .header-utilitarios) --- */
 .theme-toggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    /* Remove a posição absoluta para que funcione no flexbox */
+    position: static; 
     background: var(--cor-rose-gold);
     color: var(--cor-preto);
     border: none;
@@ -179,6 +224,8 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s, transform 0.3s;
+    /* Ajustes para o novo layout */
+    margin-left: 10px;
 }
 
 .theme-toggle:hover {
